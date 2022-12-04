@@ -1,0 +1,29 @@
+.form-grid {
+    display: table;
+    width: 100%;
+}
+
+.form-grid .grid-row {
+    display: table-row;
+}
+
+.form-grid .grid-cell {
+    display: table-cell;
+    padding-bottom: 12px;
+}
+
+.form-grid .grid-cell:nth-of-type(1) {
+    padding-right: 30px;
+}
+
+.form-grid .grid-cell:nth-of-type(2) {
+    width: 100%;
+}
+
+.form-grid label {
+    white-space: nowrap;
+}
+
+.form-grid input {
+    width: 100%;
+}

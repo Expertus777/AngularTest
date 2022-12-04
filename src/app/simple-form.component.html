@@ -1,29 +1,42 @@
 <h1>Aareon Angular Test</h1>
 <form>
-  <div>
-    <div>
-      <label>Title</label>
-      <select>
-        <option value="">-- Select an option --</option>
-        <!-- TODO: add titles to dropdown -->
-      </select>
+  <div class="form-grid">
+    <div class="grid-row">
+      <div class="grid-cell">
+        <label>Title</label>
+      </div>
+      <div class="grid-cell">
+        <select>
+          <option value="">-- Select an option --</option>
+          <!-- TODO: add titles to dropdown -->
+        </select>
+      </div>
     </div>
-    <div>
-      <label>First name</label>
-      <input type="text" placeholder="First name"/>
+    <div class="grid-row">
+      <div class="grid-cell">
+        <label>First name</label>
+      </div>
+      <div class="grid-cell">
+        <input type="text"
+               placeholder="First name" />
+      </div>
     </div>
-    <div>
-      <label>Last name</label>
-      <input type="text" placeholder="Last name"/>
+    <div class="grid-row">
+      <div class="grid-cell">
+        <label>Last name</label>
+      </div>
+      <div class="grid-cell">
+        <input type="text"
+               placeholder="Last name" />
+        <!-- TODO: add error message -->
+        <span></span>
+      </div>
     </div>
-    <!-- TODO: add error message -->
-    <span></span>
-    <div>
-      <input type="checkbox"/>
-      <label>I accept the terms & conditions</label>
-    </div>
-    <div>
-      <button>Submit</button>
-    </div>
+  </div>
+  <div class="terms-wrapper">
+    <label class="app-checkbox"><input type="checkbox"/> I accept the terms & conditions</label>
+  </div>
+  <div class="submit-wrapper">
+    <button>Submit</button>
   </div>
 </form>
