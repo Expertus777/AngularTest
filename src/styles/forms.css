@@ -2,3 +2,18 @@
 .app-checkbox input {
     cursor: pointer;
 }
+
+.error-row input{
+    border-color: red;
+    outline: none;
+}
+
+.error-row input{
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 15px;
+    margin-top: -10px;
+}

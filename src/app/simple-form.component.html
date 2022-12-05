@@ -1,42 +1,54 @@
 <h1>Aareon Angular Test</h1>
-<form>
-  <div class="form-grid">
-    <div class="grid-row">
-      <div class="grid-cell">
+<form [formGroup]="simpleForm" (ngSubmit)="onSubmit()">
+  <table class="form-grid">
+    <tr>
+      <td>
         <label>Title</label>
-      </div>
-      <div class="grid-cell">
-        <select>
+      </td>
+      <td>
+        <select formControlName="title">
           <option value="">-- Select an option --</option>
-          <!-- TODO: add titles to dropdown -->
+          <option *ngFor="let title of titles"
+                  value="{{title.name}}">{{title.name}}</option>
         </select>
-      </div>
-    </div>
-    <div class="grid-row">
-      <div class="grid-cell">
+      </td>
+    </tr>
+    <tr>
+      <td>
         <label>First name</label>
-      </div>
-      <div class="grid-cell">
+      </td>
+      <td>
         <input type="text"
+               formControlName="firstName"
                placeholder="First name" />
-      </div>
-    </div>
-    <div class="grid-row">
-      <div class="grid-cell">
+      </td>
+    </tr>
+    <tr [ngClass]="{'error-row': lastName.invalid && (lastName.dirty || lastName.touched)}">
+      <td>
         <label>Last name</label>
-      </div>
-      <div class="grid-cell">
+      </td>
+      <td>
         <input type="text"
-               placeholder="Last name" />
-        <!-- TODO: add error message -->
-        <span></span>
-      </div>
-    </div>
-  </div>
+               formControlName="lastName"
+               placeholder="Last name"
+               required />
+      </td>
+    </tr>
+    <tr *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+      <td colspan="2">
+        <div class="error-message" >
+          <div *ngIf="lastName.errors?.['required']">
+            * Last name is mandatory
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
   <div class="terms-wrapper">
-    <label class="app-checkbox"><input type="checkbox"/> I accept the terms & conditions</label>
+    <label class="app-checkbox"><input type="checkbox" formControlName="acceptTerms"/> I accept the terms & conditions</label>
   </div>
   <div class="submit-wrapper">
-    <button>Submit</button>
+    <button [disabled]="!terms.value" type="submit">Submit</button>
   </div>
 </form>
